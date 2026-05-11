@@ -1,0 +1,54 @@
+{
+  "exportTimestamp": "2026-05-11T19-12-53",
+  "bodyType": "male",
+  "standardAnimations": {
+    "exported": [
+      "spellcast",
+      "thrust",
+      "walk",
+      "slash",
+      "shoot",
+      "hurt",
+      "climb",
+      "idle",
+      "jump",
+      "sit",
+      "emote",
+      "run",
+      "watering",
+      "combat",
+      "1h_slash",
+      "1h_backslash",
+      "1h_halfslash"
+    ],
+    "failed": []
+  },
+  "customAnimations": {
+    "exported": [],
+    "failed": []
+  },
+  "frameSize": 64,
+  "frameCounts": {},
+  "performance": {
+    "exportKind": "splitAnimations",
+    "totalMs": 668.8,
+    "phasesMs": {
+      "render_composite_extractAnimationFromCanvas": 4.2,
+      "pngEncode": 590.7,
+      "zipFile": 10.2,
+      "staticFiles": 9.5
+    },
+    "counters": {
+      "pngEncodeCount": 17,
+      "totalPngBytes": 406883,
+      "drawAndSliceCount": 0,
+      "zipFileEntryCount": 17,
+      "renderExtractAnimationFromCanvasCalls": 17,
+      "renderSingleItemCalls": 0,
+      "renderSingleItemAnimationCalls": 0,
+      "extractFramesFromAnimationBatchCount": 0,
+      "renderSliceCanvasForCustomAnimCalls": 0
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+  }
+}
