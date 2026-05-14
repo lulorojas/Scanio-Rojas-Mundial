@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://byj2a0m6ccdsa"
+
+[deps]
+
+files=["res://assets/jugadores/uruguay/credits/credits.notes.translation", "res://assets/jugadores/uruguay/credits/credits.authors.translation", "res://assets/jugadores/uruguay/credits/credits.licenses.translation", "res://assets/jugadores/uruguay/credits/credits.urls.translation"]
+
+source_file="res://assets/jugadores/uruguay/credits/credits.csv"
+dest_files=["res://assets/jugadores/uruguay/credits/credits.notes.translation", "res://assets/jugadores/uruguay/credits/credits.authors.translation", "res://assets/jugadores/uruguay/credits/credits.licenses.translation", "res://assets/jugadores/uruguay/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

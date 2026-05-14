@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d36wkad8xu4qp"
+
+[deps]
+
+files=["res://assets/jugadores/sudafrica/credits/credits.notes.translation", "res://assets/jugadores/sudafrica/credits/credits.authors.translation", "res://assets/jugadores/sudafrica/credits/credits.licenses.translation", "res://assets/jugadores/sudafrica/credits/credits.urls.translation"]
+
+source_file="res://assets/jugadores/sudafrica/credits/credits.csv"
+dest_files=["res://assets/jugadores/sudafrica/credits/credits.notes.translation", "res://assets/jugadores/sudafrica/credits/credits.authors.translation", "res://assets/jugadores/sudafrica/credits/credits.licenses.translation", "res://assets/jugadores/sudafrica/credits/credits.urls.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
