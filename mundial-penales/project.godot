@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="MundialPenales"
+run/main_scene="uid://vw4vpy8tv4ns"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="Cancha"
+2d_physics/layer_2="Jugador"
+2d_physics/layer_3="Pelota"
+2d_physics/layer_4="Arquero"
+2d_physics/layer_5="Arco"
 
 [physics]
 

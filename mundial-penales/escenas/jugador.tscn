@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://vw4vpy8tv4ns"]
+
+[ext_resource type="Script" uid="uid://eknf1g11khxr" path="res://jugador.gd" id="1_jpodt"]
+[ext_resource type="Texture2D" uid="uid://x1r0h5aesbj4" path="res://assets/jugadores/argentina/standard/idle.png" id="2_njcx7"]
+[ext_resource type="PackedScene" uid="uid://cvaw6iwpwxd74" path="res://escenas/pelota.tscn" id="2_xutah"]
+[ext_resource type="Texture2D" uid="uid://dh84gkm56mdgg" path="res://assets/jugadores/argentina/standard/run.png" id="4_ovq70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xutah"]
+atlas = ExtResource("2_njcx7")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovq70"]
+atlas = ExtResource("2_njcx7")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as36m"]
+atlas = ExtResource("4_ovq70")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjfif"]
+atlas = ExtResource("4_ovq70")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mp40"]
+atlas = ExtResource("4_ovq70")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e85mw"]
+atlas = ExtResource("4_ovq70")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_as36m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xutah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovq70")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as36m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjfif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mp40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e85mw")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]
+
+[node name="Jugador" type="Node2D" unique_id=125423849]
+script = ExtResource("1_jpodt")
+
+[node name="Pelota" parent="." unique_id=846511178 instance=ExtResource("2_xutah")]
+position = Vector2(326, 506)
+scale = Vector2(2.2656248, 1.7656252)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=909358325]
+position = Vector2(273, 464)
+scale = Vector2(2.2656248, 1.7656252)
+sprite_frames = SubResource("SpriteFrames_as36m")
+animation = &"kick"
+
+[node name="puntoDisparo" type="Marker2D" parent="." unique_id=149201338]
+position = Vector2(323, 502)
+gizmo_extents = 0.0
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1400365572]
+points = PackedVector2Array(328, 497)
+default_color = Color(0.96605235, 0.9660521, 5.390644e-06, 1)

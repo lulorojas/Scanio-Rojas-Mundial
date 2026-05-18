@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cvaw6iwpwxd74"]
+
+[ext_resource type="Script" uid="uid://bdj2cq3sh8733" path="res://scripts/pelota.gd" id="1_cuejr"]
+[ext_resource type="Texture2D" uid="uid://cwp2pggfqnkm" path="res://assets/extras/pelota.png" id="1_se23l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuejr"]
+radius = 8.062258
+
+[node name="Pelota" type="Area2D" unique_id=1904704808]
+script = ExtResource("1_cuejr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817239342]
+position = Vector2(4.0000014, -5.9999995)
+scale = Vector2(0.041594457, 0.04157044)
+texture = ExtResource("1_se23l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=27799667]
+light_mask = 25
+visibility_layer = 4
+position = Vector2(4, -6)
+shape = SubResource("CircleShape2D_cuejr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
