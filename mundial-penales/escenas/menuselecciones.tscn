@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://cx6bu3gl2bfl5"]
 
-[node name="menu" type="Node2D" unique_id=1265752180]
+[ext_resource type="Texture2D" uid="uid://nu0le075ubkp" path="res://assets/fondos/fondo-campo-futbol-gradiente_52683-66772.png" id="1_7wqar"]
+
+[node name="Control" type="Control" unique_id=282370575]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fondo" type="TextureRect" parent="." unique_id=1383804020]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 641.0
+texture = ExtResource("1_7wqar")
