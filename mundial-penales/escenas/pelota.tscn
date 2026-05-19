@@ -7,10 +7,6 @@
 atlas = ExtResource("2_cuejr")
 region = Rect2(0, 0, 76, 81)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_865j7"]
-atlas = ExtResource("2_cuejr")
-region = Rect2(0, 0, 76, 81)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhujr"]
 atlas = ExtResource("2_cuejr")
 region = Rect2(456, 81, 76, 81)
@@ -31,9 +27,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_865j7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_mhujr")
 }, {
 "duration": 1.0,
@@ -48,6 +41,8 @@ animations = [{
 radius = 7.071068
 
 [node name="Pelota" type="Area2D" unique_id=1904704808]
+collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_cuejr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=117529327]
@@ -57,8 +52,6 @@ sprite_frames = SubResource("SpriteFrames_m7sps")
 animation = &"remate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=27799667]
-light_mask = 25
-visibility_layer = 4
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_cuejr")
 

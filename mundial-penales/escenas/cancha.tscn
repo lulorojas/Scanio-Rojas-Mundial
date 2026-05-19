@@ -5,9 +5,19 @@
 [ext_resource type="Texture2D" uid="uid://ckcgk1u2yncfo" path="res://assets/extras/arco.png" id="3_yokxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01oa3"]
-size = Vector2(428, 118)
+size = Vector2(470, 158)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
+size = Vector2(1053.25, 194.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yokxi"]
+size = Vector2(1, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilx2b"]
+size = Vector2(7, 205.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c533"]
+size = Vector2(498, 3.5)
 
 [node name="Cancha" type="Node2D" unique_id=1947434201]
 
@@ -20,29 +30,50 @@ texture = ExtResource("1_76hsk")
 position = Vector2(270, 110)
 
 [node name="Arco" type="Area2D" parent="." unique_id=551889423 groups=["arco"]]
-light_mask = 4
-visibility_layer = 16
+collision_layer = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arco" unique_id=1311252230]
-position = Vector2(582, 307)
+position = Vector2(579, 258)
 shape = SubResource("RectangleShape2D_01oa3")
 
 [node name="Afuera" type="Area2D" parent="." unique_id=1983435087]
 light_mask = 4
+collision_mask = 4
 
 [node name="arriba" type="CollisionShape2D" parent="Afuera" unique_id=945095066]
-position = Vector2(-315, 69)
+position = Vector2(598, 18)
 shape = SubResource("RectangleShape2D_76hsk")
 
 [node name="der" type="CollisionShape2D" parent="Afuera" unique_id=1592224151]
-position = Vector2(-210, 46)
+position = Vector2(-502, 267)
 shape = SubResource("RectangleShape2D_76hsk")
 
 [node name="izq" type="CollisionShape2D" parent="Afuera" unique_id=298093825]
-position = Vector2(-105, 23)
+position = Vector2(1624, 238)
 shape = SubResource("RectangleShape2D_76hsk")
 
 [node name="arco" type="Sprite2D" parent="." unique_id=1603866014]
-position = Vector2(579.00006, 315)
-scale = Vector2(0.8608171, 0.6131076)
+position = Vector2(579, 275)
+scale = Vector2(0.95423603, 0.9310547)
 texture = ExtResource("3_yokxi")
+
+[node name="Palos" type="Area2D" parent="." unique_id=839268921 groups=["palos"]]
+collision_layer = 16
+collision_mask = 4
+
+[node name="paloIZQ" type="CollisionShape2D" parent="Palos" unique_id=1813260117]
+position = Vector2(820.5, 261.5)
+shape = SubResource("RectangleShape2D_yokxi")
+
+[node name="paloDER" type="CollisionShape2D" parent="Palos" unique_id=1364858538]
+position = Vector2(337.5, 266.875)
+shape = SubResource("RectangleShape2D_ilx2b")
+
+[node name="Travesano" type="Area2D" parent="." unique_id=732948120 groups=["travesano"]]
+collision_layer = 16
+collision_mask = 4
+
+[node name="travesano" type="CollisionShape2D" parent="Travesano" unique_id=1660944391]
+position = Vector2(579, 160.25)
+shape = SubResource("RectangleShape2D_5c533")

@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://vw4vpy8tv4ns"]
 
-[ext_resource type="Script" uid="uid://eknf1g11khxr" path="res://jugador.gd" id="1_jpodt"]
+[ext_resource type="Script" uid="uid://eknf1g11khxr" path="res://scripts/jugador.gd" id="1_jpodt"]
 [ext_resource type="PackedScene" uid="uid://cvaw6iwpwxd74" path="res://escenas/pelota.tscn" id="2_xutah"]
-[ext_resource type="SpriteFrames" path="res://sudafrica.tres" id="3_njcx7"]
 
 [node name="Jugador" type="Node2D" unique_id=125423849]
 script = ExtResource("1_jpodt")
@@ -14,8 +13,6 @@ scale = Vector2(2.2656248, 1.7656252)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=909358325]
 position = Vector2(271.625, 443.875)
 scale = Vector2(2.082031, 1.9335935)
-sprite_frames = ExtResource("3_njcx7")
-animation = &"kick"
 
 [node name="puntoDisparo" type="Marker2D" parent="." unique_id=149201338]
 position = Vector2(302, 488)
@@ -24,3 +21,10 @@ gizmo_extents = 0.0
 [node name="Line2D" type="Line2D" parent="." unique_id=1400365572]
 points = PackedVector2Array(328, 497)
 default_color = Color(0.96605235, 0.9660521, 5.390644e-06, 1)
+
+[node name="PuntoCaida" type="ColorRect" parent="." unique_id=1986016742]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
+color = Color(0.7103362, 0, 0.13981077, 1)
