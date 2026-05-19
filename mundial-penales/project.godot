@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="MundialPenales"
-run/main_scene="uid://vw4vpy8tv4ns"
+run/main_scene="uid://dw42vng0u0dur"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://dvs0egfg43oyf"
+
+[display]
+
+window/size/viewport_height=1000
+window/stretch/mode="canvas_items"
 
 [layer_names]
 

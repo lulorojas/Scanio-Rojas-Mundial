@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bscmruugtkvtb"]
+
+[ext_resource type="Texture2D" uid="uid://dro5df8ucbmei" path="res://assets/jugadores/sudafrica/standard/idle.png" id="1_oivto"]
+[ext_resource type="Texture2D" uid="uid://dicbneo7owoma" path="res://assets/jugadores/sudafrica/standard/run.png" id="2_my6an"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u44v"]
+atlas = ExtResource("1_oivto")
+region = Rect2(0, 192, 69, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqwog"]
+atlas = ExtResource("1_oivto")
+region = Rect2(69, 192, 69, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8rp8"]
+atlas = ExtResource("2_my6an")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2ahp"]
+atlas = ExtResource("2_my6an")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njset"]
+atlas = ExtResource("2_my6an")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qal0u"]
+atlas = ExtResource("2_my6an")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1u44v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqwog")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8rp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2ahp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njset")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qal0u")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]

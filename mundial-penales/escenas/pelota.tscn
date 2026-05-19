@@ -1,23 +1,65 @@
 [gd_scene format=3 uid="uid://cvaw6iwpwxd74"]
 
 [ext_resource type="Script" uid="uid://bdj2cq3sh8733" path="res://scripts/pelota.gd" id="1_cuejr"]
-[ext_resource type="Texture2D" uid="uid://cwp2pggfqnkm" path="res://assets/extras/pelota.png" id="1_se23l"]
+[ext_resource type="Texture2D" uid="uid://ba7kbv5p5nh3b" path="res://assets/ChatGPT_Image_19_may_2026__11_00_18-removebg-preview.png" id="2_cuejr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyjv2"]
+atlas = ExtResource("2_cuejr")
+region = Rect2(0, 0, 76, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_865j7"]
+atlas = ExtResource("2_cuejr")
+region = Rect2(0, 0, 76, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhujr"]
+atlas = ExtResource("2_cuejr")
+region = Rect2(456, 81, 76, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myv1o"]
+atlas = ExtResource("2_cuejr")
+region = Rect2(456, 0, 76, 81)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m7sps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyjv2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_865j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhujr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myv1o")
+}],
+"loop": true,
+"name": &"remate",
+"speed": 10.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuejr"]
-radius = 8.062258
+radius = 7.071068
 
 [node name="Pelota" type="Area2D" unique_id=1904704808]
 script = ExtResource("1_cuejr")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=817239342]
-position = Vector2(4.0000014, -5.9999995)
-scale = Vector2(0.041594457, 0.04157044)
-texture = ExtResource("1_se23l")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=117529327]
+position = Vector2(-0.25000143, -3.437499)
+scale = Vector2(0.3618421, 0.35648152)
+sprite_frames = SubResource("SpriteFrames_m7sps")
+animation = &"remate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=27799667]
 light_mask = 25
 visibility_layer = 4
-position = Vector2(4, -6)
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_cuejr")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

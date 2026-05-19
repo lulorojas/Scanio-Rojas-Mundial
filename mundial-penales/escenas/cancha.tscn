@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dw42vng0u0dur"]
+
+[ext_resource type="Texture2D" uid="uid://5kh5qrlvij3q" path="res://assets/ChatGPT Image 19 may 2026, 10_52_31.png" id="1_76hsk"]
+[ext_resource type="PackedScene" uid="uid://vw4vpy8tv4ns" path="res://escenas/jugador.tscn" id="1_qb8kc"]
+[ext_resource type="Texture2D" uid="uid://ckcgk1u2yncfo" path="res://assets/extras/arco.png" id="3_yokxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01oa3"]
+size = Vector2(428, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
+
+[node name="Cancha" type="Node2D" unique_id=1947434201]
+
+[node name="fondo" type="Sprite2D" parent="." unique_id=939338616]
+position = Vector2(579.3872, 507.9652)
+scale = Vector2(0.69212055, 1.0797763)
+texture = ExtResource("1_76hsk")
+
+[node name="Jugador" parent="." unique_id=125423849 instance=ExtResource("1_qb8kc")]
+position = Vector2(270, 110)
+
+[node name="Arco" type="Area2D" parent="." unique_id=551889423 groups=["arco"]]
+light_mask = 4
+visibility_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arco" unique_id=1311252230]
+position = Vector2(582, 307)
+shape = SubResource("RectangleShape2D_01oa3")
+
+[node name="Afuera" type="Area2D" parent="." unique_id=1983435087]
+light_mask = 4
+
+[node name="arriba" type="CollisionShape2D" parent="Afuera" unique_id=945095066]
+position = Vector2(-315, 69)
+shape = SubResource("RectangleShape2D_76hsk")
+
+[node name="der" type="CollisionShape2D" parent="Afuera" unique_id=1592224151]
+position = Vector2(-210, 46)
+shape = SubResource("RectangleShape2D_76hsk")
+
+[node name="izq" type="CollisionShape2D" parent="Afuera" unique_id=298093825]
+position = Vector2(-105, 23)
+shape = SubResource("RectangleShape2D_76hsk")
+
+[node name="arco" type="Sprite2D" parent="." unique_id=1603866014]
+position = Vector2(579.00006, 315)
+scale = Vector2(0.8608171, 0.6131076)
+texture = ExtResource("3_yokxi")
