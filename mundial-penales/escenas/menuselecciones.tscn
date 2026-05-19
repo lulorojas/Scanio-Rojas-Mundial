@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://cx6bu3gl2bfl5"]
 
 [ext_resource type="Texture2D" uid="uid://nu0le075ubkp" path="res://assets/fondos/fondo-campo-futbol-gradiente_52683-66772.png" id="1_7wqar"]
+[ext_resource type="Texture2D" uid="uid://jlglpj8mrdjj" path="res://assets/fondos/186152365-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-argentina-removebg-preview.png" id="2_3uaoh"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="3_5ii6y"]
+[ext_resource type="Texture2D" uid="uid://bvexi4h0b8amc" path="res://assets/fondos/bandera-francia-pixel-art_985537-23-removebg-preview.png" id="4_3g042"]
+[ext_resource type="Texture2D" uid="uid://dx461i7kucr0f" path="res://assets/fondos/ilustración-de-arte-simple-vectorial-píxel-plano-del-indicador-flujo-brasil-ilustraciones-píxeles-planos-vector-y-colorido-la-247321758-removebg-preview.png" id="5_nswwc"]
+[ext_resource type="Texture2D" uid="uid://bxa6rv8ty3trk" path="res://assets/fondos/vector-illustration-wavy-uruguay-flag-260nw-2487024897-removebg-preview.png" id="6_nppl8"]
+[ext_resource type="Texture2D" uid="uid://dtmy5yyuoa4j0" path="res://assets/fondos/png-clipart-spain-flag-flag-of-spain-guess-emoji-spain-flag-orange-removebg-preview.png" id="7_nswwc"]
+[ext_resource type="Texture2D" uid="uid://4ghd45jmdyjt" path="res://assets/fondos/185332604-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-italy-removebg-preview.png" id="8_nppl8"]
+[ext_resource type="Texture2D" uid="uid://bcqqncthrh1y6" path="res://assets/fondos/simple-vector-flat-pixel-art-illustration-flowing-flag-uk-great-britain-colorful-247450283-removebg-preview.png" id="9_u7j8k"]
+[ext_resource type="Texture2D" uid="uid://c27hrqfq24yvt" path="res://assets/fondos/images-removebg-preview.png" id="10_x2cx0"]
+[ext_resource type="Texture2D" uid="uid://bt2jncl484ffc" path="res://assets/fondos/imagespreview.png" id="11_450sn"]
+[ext_resource type="Texture2D" uid="uid://bugupna0n8sfi" path="res://assets/fondos/flag-japan_1f1ef-1f1f5 (1).png" id="12_1vewf"]
+[ext_resource type="Texture2D" uid="uid://b54vhtex8qi3x" path="res://assets/fondos/south-korea-flag-vector-wavy-600nw-2670013953-removebg-preview.png" id="13_jm0sy"]
+[ext_resource type="Texture2D" uid="uid://6f77cw87b8bt" path="res://assets/fondos/5344559-removebg-preview.png" id="14_x2cx0"]
+
+[sub_resource type="Theme" id="Theme_6csli"]
+default_font_size = 25
+Button/colors/font_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/colors/font_hover_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/styles/hover = ExtResource("3_5ii6y")
+Button/styles/normal = ExtResource("3_5ii6y")
 
 [node name="Control" type="Control" unique_id=282370575]
 layout_mode = 3
@@ -13,3 +33,182 @@ layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 641.0
 texture = ExtResource("1_7wqar")
+
+[node name="Cuadricula" type="GridContainer" parent="." unique_id=1309217372]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 68.0
+offset_right = 1016.0
+offset_bottom = 632.0
+theme = SubResource("Theme_6csli")
+theme_override_constants/h_separation = 210
+theme_override_constants/v_separation = 130
+columns = 3
+
+[node name="BotonEspaña" type="Button" parent="Cuadricula" unique_id=520444462]
+layout_mode = 2
+text = "ESPAÑA"
+
+[node name="BotonItalia" type="Button" parent="Cuadricula" unique_id=1955727580]
+layout_mode = 2
+text = "ITALIA"
+
+[node name="BotonBelgica" type="Button" parent="Cuadricula" unique_id=1032574054]
+layout_mode = 2
+text = "BELGICA"
+
+[node name="BotonFrancia" type="Button" parent="Cuadricula" unique_id=1598534810]
+layout_mode = 2
+text = "FRANCIA"
+
+[node name="BotonPeru" type="Button" parent="Cuadricula" unique_id=206121630]
+layout_mode = 2
+text = "PERU"
+
+[node name="BotonUruguay" type="Button" parent="Cuadricula" unique_id=1864327892]
+layout_mode = 2
+text = "URUGUAY"
+
+[node name="BotonBrasil" type="Button" parent="Cuadricula" unique_id=8501060]
+layout_mode = 2
+text = "BRASIL"
+
+[node name="BotonArgentina" type="Button" parent="Cuadricula" unique_id=1699018366]
+layout_mode = 2
+text = "ARGENTINA"
+
+[node name="BotonKoreaDelSur" type="Button" parent="Cuadricula" unique_id=1929098035]
+layout_mode = 2
+text = "KOREA.S"
+
+[node name="BotonInglaterra" type="Button" parent="Cuadricula" unique_id=6654873]
+layout_mode = 2
+text = "ENGLAN"
+
+[node name="BotonJapon" type="Button" parent="Cuadricula" unique_id=1857207641]
+layout_mode = 2
+text = "JAPON"
+
+[node name="BotonSudafrica" type="Button" parent="Cuadricula" unique_id=1887324311]
+layout_mode = 2
+text = "S.AFRICA"
+
+[node name="BanderaArgentina" type="TextureRect" parent="." unique_id=230093838]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 363.0
+offset_right = 531.0
+offset_bottom = 466.0
+rotation = -0.4834562
+texture = ExtResource("2_3uaoh")
+expand_mode = 1
+
+[node name="BanderaFrancia" type="TextureRect" parent="." unique_id=444252180]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 194.0
+offset_right = 214.0
+offset_bottom = 297.0
+rotation = -0.4834562
+texture = ExtResource("4_3g042")
+expand_mode = 1
+
+[node name="BanderaBrasil" type="TextureRect" parent="." unique_id=1196579788]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 364.0
+offset_right = 216.0
+offset_bottom = 467.0
+rotation = -0.4834562
+texture = ExtResource("5_nswwc")
+expand_mode = 1
+
+[node name="BanderaUruguay" type="TextureRect" parent="." unique_id=526153924]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 206.0
+offset_right = 881.0949
+offset_bottom = 272.28665
+rotation = -0.4834562
+texture = ExtResource("6_nppl8")
+expand_mode = 1
+
+[node name="BanderaEspaña" type="TextureRect" parent="." unique_id=1222492835]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 38.0
+offset_right = 203.36243
+offset_bottom = 108.56302
+rotation = -0.4834562
+texture = ExtResource("7_nswwc")
+expand_mode = 1
+
+[node name="BanderaItalia" type="TextureRect" parent="." unique_id=659870212]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 29.0
+offset_right = 535.0
+offset_bottom = 132.0
+rotation = -0.4834562
+texture = ExtResource("8_nppl8")
+expand_mode = 1
+
+[node name="BanderaInglaterra" type="TextureRect" parent="." unique_id=349696517]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 533.0
+offset_right = 218.0
+offset_bottom = 636.0
+rotation = -0.4834562
+texture = ExtResource("9_u7j8k")
+expand_mode = 1
+
+[node name="BanderaBelgica" type="TextureRect" parent="." unique_id=2029600283]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 37.000023
+offset_right = 890.9176
+offset_bottom = 90.19167
+rotation = -0.4834562
+texture = ExtResource("10_x2cx0")
+expand_mode = 1
+
+[node name="BanderaSudafrica" type="TextureRect" parent="." unique_id=1937277859]
+layout_mode = 0
+offset_left = 834.0
+offset_top = 549.99994
+offset_right = 886.5015
+offset_bottom = 613.6097
+rotation = -0.4834562
+texture = ExtResource("11_450sn")
+expand_mode = 1
+
+[node name="BanderaJapon" type="TextureRect" parent="." unique_id=896342498]
+layout_mode = 0
+offset_left = 501.0
+offset_top = 539.99994
+offset_right = 536.33014
+offset_bottom = 597.4501
+rotation = -0.4834562
+texture = ExtResource("12_1vewf")
+expand_mode = 1
+
+[node name="BanderaKoreaDelSur" type="TextureRect" parent="." unique_id=2142666916]
+layout_mode = 0
+offset_left = 813.99994
+offset_top = 376.0
+offset_right = 886.03864
+offset_bottom = 470.26526
+rotation = -0.4834562
+texture = ExtResource("13_jm0sy")
+expand_mode = 1
+
+[node name="BanderaPeru" type="TextureRect" parent="." unique_id=1187309126]
+layout_mode = 0
+offset_left = 500.99997
+offset_top = 199.99998
+offset_right = 533.4352
+offset_bottom = 260.11896
+rotation = -0.4834562
+texture = ExtResource("14_x2cx0")
+expand_mode = 1
