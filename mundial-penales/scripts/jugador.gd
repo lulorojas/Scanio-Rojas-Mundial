@@ -48,7 +48,7 @@ func _input(event):
 			
 		linea_flecha.set_point_position(1, pelota.position + (vector_apuntado / multiplicador_fuerza))
 		
-		var vel_z_futura = vector_apuntado.length() * 0.35
+		var vel_z_futura = abs(vector_apuntado.y) * 0.8
 		var tiempo_vuelo = (2.0 * vel_z_futura) / 600.0 
 		punto_caida.position = (pelota.position + (vector_apuntado * tiempo_vuelo)) - (punto_caida.size / 2.0)
 		punto_caida.show()
@@ -66,10 +66,10 @@ func _patear_pelota():
 	
 	if is_instance_valid(pelota) and pelota.get_parent() == self:
 		pelota.reparent(get_tree().current_scene) 
-		pelota.en_movimiento = true
-		pelota.velocidad_plana = fuerza_tiro
-		pelota.velocidad_z = fuerza_tiro.length() * 0.35
-		pelota.anim.play("remate")
+		# La altura depende de cuánto tirás hacia arriba (componente Y negativa)
+		# Más Y negativa = más alto va la pelota
+		var vel_z = abs(fuerza_tiro.y) * 0.8
+		pelota.iniciar_tiro(fuerza_tiro, vel_z)
 		get_tree().create_timer(4.0).timeout.connect(pelota.queue_free)
 	
 	if anim.is_playing() and anim.animation == "kick":
