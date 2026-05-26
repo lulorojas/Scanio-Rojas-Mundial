@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dwq444ma1qeqp"]
 
-[ext_resource type="Script" uid="uid://bghu3eck8p6w0" path="res://escenas/arquero.gd" id="1_8mxbl"]
+[ext_resource type="Script" uid="uid://bghu3eck8p6w0" path="res://scripts/arquero.gd" id="1_8mxbl"]
 [ext_resource type="Texture2D" uid="uid://cvj35p0x7wghw" path="res://assets/arqueros/arquero.png" id="2_e68xn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mxbl"]
