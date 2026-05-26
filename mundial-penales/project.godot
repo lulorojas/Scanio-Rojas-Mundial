@@ -16,6 +16,15 @@ run/main_scene="uid://vw4vpy8tv4ns"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://dvs0egfg43oyf"
+
+[display]
+
+window/size/viewport_height=1000
+window/stretch/mode="canvas_items"
+
 [layer_names]
 
 2d_physics/layer_1="Cancha"
