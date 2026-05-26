@@ -7,11 +7,12 @@ var gravedad = 600.0
 var se_mueve = false
 var ya_revise = false
 var pego_palo = false
+var atajada = false
 
 # posiciones del arco
 var palo_izq = 330.5
 var palo_der = 820.5
-var linea_gol = 367.0
+var linea_gol = 337.0
 var alto_travesano = 120.0
 
 var escala_max = 1.0
@@ -31,6 +32,7 @@ func patear(fuerza, vz):
 	altura = 0.0
 	ya_revise = false
 	pego_palo = false
+	atajada = false
 	pos_y_inicio = global_position.y
 	anim.play("remate")
 	col.set_deferred("disabled", true)
@@ -44,6 +46,9 @@ func _process(delta):
 	altura += ((vz_antes + vel_z) / 2.0) * delta
 
 	global_position += vel * delta
+
+	if col.disabled and global_position.y < linea_gol + 250 and not atajada:
+		col.set_deferred("disabled", false)
 
 	# rebote en el piso
 	if altura <= 0:
@@ -68,8 +73,29 @@ func _process(delta):
 		anim.scale = Vector2(esc, esc) * Vector2(0.4, 0.4)
 
 	if not ya_revise:
+		revisar_atajada()
 		revisar_palos()
 		revisar_gol()
+
+func revisar_atajada():
+	if atajada:
+		return
+	var arquero = get_node_or_null("/root/Cancha/arquero")
+	if arquero == null:
+		return
+	if arquero.esta_ocupado == false:
+		return
+	var pos_arq = arquero.colision.global_position
+	var dif_x = abs(global_position.x - pos_arq.x)
+	var dif_y = abs(global_position.y - pos_arq.y)
+	if dif_x < 55 and dif_y < 90:
+		atajada = true
+		ya_revise = true
+		vel.x = -vel.x * 0.5
+		vel.y = abs(vel.y) * 0.6
+		vel_z = vel_z * 0.3
+		col.set_deferred("disabled", true)
+		print("ATAJADAAA")
 
 func revisar_palos():
 	if global_position.y > linea_gol or global_position.y < linea_gol - 100:
@@ -91,6 +117,8 @@ func revisar_palos():
 
 func revisar_gol():
 	if global_position.y > linea_gol:
+		return
+	if atajada:
 		return
 
 	ya_revise = true

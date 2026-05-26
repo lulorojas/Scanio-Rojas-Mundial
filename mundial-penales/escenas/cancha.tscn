@@ -9,7 +9,7 @@
 size = Vector2(447, 163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
-size = Vector2(1053.25, 194.25)
+size = Vector2(1053.25, 183.125)
 
 [node name="Cancha" type="Node2D" unique_id=1947434201]
 
@@ -34,7 +34,7 @@ light_mask = 4
 collision_mask = 4
 
 [node name="arriba" type="CollisionShape2D" parent="Afuera" unique_id=945095066]
-position = Vector2(598, 18)
+position = Vector2(600, -67)
 shape = SubResource("RectangleShape2D_76hsk")
 
 [node name="der" type="CollisionShape2D" parent="Afuera" unique_id=1592224151]
@@ -51,4 +51,4 @@ scale = Vector2(0.9914903, 0.9599718)
 texture = ExtResource("3_yokxi")
 
 [node name="arquero" parent="." unique_id=1598289278 instance=ExtResource("3_ilx2b")]
-position = Vector2(277, 301)
+position = Vector2(269, 159)

@@ -48,6 +48,14 @@ func _process(_delta):
 		direccion_horizontal = 1.0
 		direccion_vertical = 1.0
 		intenta_atajar = true
+	elif Input.is_key_pressed(KEY_W):
+		direccion_horizontal = 0.0
+		direccion_vertical = -1.0
+		intenta_atajar = true
+	elif Input.is_key_pressed(KEY_S):
+		direccion_horizontal = 0.0
+		direccion_vertical = 0.0
+		intenta_atajar = true
 
 	if intenta_atajar:
 		_lanzar_arquero(direccion_horizontal, direccion_vertical)
@@ -64,7 +72,7 @@ func _lanzar_arquero(direccion_horizontal: float, direccion_vertical: float):
 		animacion.play("atajar")
 	else:
 		animacion.flip_h = false
-		animacion.play("quieto")
+		animacion.play("atajar")
 
 	var angulo_de_rotacion: float = direccion_horizontal * grados_de_inclinacion
 

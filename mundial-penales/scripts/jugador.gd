@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var mult_fuerza = 3.5
+@export var mult_fuerza = 3.1
 @export var fuerza_max = 9999.0
 
 var arrastrando = false
