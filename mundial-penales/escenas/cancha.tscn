@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dw42vng0u0dur"]
 
-[ext_resource type="Texture2D" uid="uid://5kh5qrlvij3q" path="res://assets/ChatGPT Image 19 may 2026, 10_52_31.png" id="1_76hsk"]
+[ext_resource type="Texture2D" uid="uid://cj8q23qe2p7wp" path="res://assets/extras/fondo.png" id="1_76hsk"]
 [ext_resource type="PackedScene" uid="uid://vw4vpy8tv4ns" path="res://escenas/jugador.tscn" id="1_qb8kc"]
 [ext_resource type="Texture2D" uid="uid://ckcgk1u2yncfo" path="res://assets/extras/arco.png" id="3_yokxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01oa3"]
-size = Vector2(447, 158)
+size = Vector2(447, 163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
 size = Vector2(1053.25, 194.25)
@@ -13,19 +13,19 @@ size = Vector2(1053.25, 194.25)
 [node name="Cancha" type="Node2D" unique_id=1947434201]
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=939338616]
-position = Vector2(579.3872, 507.9652)
-scale = Vector2(0.69212055, 1.0797763)
+position = Vector2(611.00006, 537)
+scale = Vector2(0.9203803, 1.560246)
 texture = ExtResource("1_76hsk")
 
 [node name="Jugador" parent="." unique_id=125423849 instance=ExtResource("1_qb8kc")]
-position = Vector2(270, 110)
+position = Vector2(316, 75)
 
 [node name="Arco" type="Area2D" parent="." unique_id=551889423 groups=["arco"]]
 collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arco" unique_id=1311252230]
-position = Vector2(580.5, 258)
+position = Vector2(601, 357)
 shape = SubResource("RectangleShape2D_01oa3")
 
 [node name="Afuera" type="Area2D" parent="." unique_id=1983435087]
@@ -45,6 +45,6 @@ position = Vector2(1624, 238)
 shape = SubResource("RectangleShape2D_76hsk")
 
 [node name="arco" type="Sprite2D" parent="." unique_id=1603866014]
-position = Vector2(579, 275)
-scale = Vector2(0.95423603, 0.9310547)
+position = Vector2(620, 245)
+scale = Vector2(0.9914903, 0.9599718)
 texture = ExtResource("3_yokxi")

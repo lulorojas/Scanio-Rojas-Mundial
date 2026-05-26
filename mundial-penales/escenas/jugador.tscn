@@ -21,10 +21,3 @@ gizmo_extents = 0.0
 [node name="Line2D" type="Line2D" parent="." unique_id=1400365572]
 points = PackedVector2Array(328, 497)
 default_color = Color(0.96605235, 0.9660521, 5.390644e-06, 1)
-
-[node name="PuntoCaida" type="ColorRect" parent="." unique_id=1986016742]
-offset_left = -5.0
-offset_top = -5.0
-offset_right = 6.0
-offset_bottom = 5.0
-color = Color(0.7103362, 0, 0.13981077, 1)

@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://cvaw6iwpwxd74"]
 
 [ext_resource type="Script" uid="uid://bdj2cq3sh8733" path="res://scripts/pelota.gd" id="1_cuejr"]
-[ext_resource type="Texture2D" uid="uid://ba7kbv5p5nh3b" path="res://assets/ChatGPT_Image_19_may_2026__11_00_18-removebg-preview.png" id="2_cuejr"]
+[ext_resource type="Texture2D" uid="uid://ch643vrjph5id" path="res://assets/animaciones/animacion_pelota.png" id="2_cuejr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyjv2"]
 atlas = ExtResource("2_cuejr")
 region = Rect2(0, 0, 76, 81)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhujr"]
-atlas = ExtResource("2_cuejr")
-region = Rect2(456, 81, 76, 81)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_myv1o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4q3a"]
 atlas = ExtResource("2_cuejr")
 region = Rect2(456, 0, 76, 81)
 
@@ -27,10 +23,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mhujr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_myv1o")
+"texture": SubResource("AtlasTexture_e4q3a")
 }],
 "loop": true,
 "name": &"remate",
@@ -38,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cuejr"]
-radius = 7.071068
+radius = 9.0
 
 [node name="Pelota" type="Area2D" unique_id=1904704808]
 collision_layer = 4
@@ -46,13 +39,11 @@ collision_mask = 25
 script = ExtResource("1_cuejr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=117529327]
-position = Vector2(-0.25000143, -3.437499)
-scale = Vector2(0.3618421, 0.35648152)
+position = Vector2(4.7683716e-07, -3.9999998)
+scale = Vector2(0.3663158, 0.3677778)
 sprite_frames = SubResource("SpriteFrames_m7sps")
-animation = &"remate"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=27799667]
-position = Vector2(1, -1)
+position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_cuejr")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
