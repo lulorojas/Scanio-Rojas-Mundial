@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cx6bu3gl2bfl5"]
 
 [ext_resource type="Texture2D" uid="uid://nu0le075ubkp" path="res://assets/fondos/fondo-campo-futbol-gradiente_52683-66772.png" id="1_7wqar"]
+[ext_resource type="Script" uid="uid://dcvrtphelrjb4" path="res://scripts/menuselecciones.gd" id="1_450sn"]
 [ext_resource type="Texture2D" uid="uid://jlglpj8mrdjj" path="res://assets/fondos/186152365-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-argentina-removebg-preview.png" id="2_3uaoh"]
 [ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="3_5ii6y"]
 [ext_resource type="Texture2D" uid="uid://bvexi4h0b8amc" path="res://assets/fondos/bandera-francia-pixel-art_985537-23-removebg-preview.png" id="4_3g042"]
@@ -27,6 +28,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_450sn")
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=1383804020]
 layout_mode = 0
@@ -212,3 +214,16 @@ offset_bottom = 260.11896
 rotation = -0.4834562
 texture = ExtResource("14_x2cx0")
 expand_mode = 1
+
+[connection signal="pressed" from="Cuadricula/BotonEspaña" to="." method="_on_boton_españa_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonItalia" to="." method="_on_boton_italia_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonBelgica" to="." method="_on_boton_belgica_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonFrancia" to="." method="_on_boton_francia_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonPeru" to="." method="_on_boton_peru_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonUruguay" to="." method="_on_boton_uruguay_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonBrasil" to="." method="_on_boton_brasil_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonArgentina" to="." method="_on_boton_argentina_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonKoreaDelSur" to="." method="_on_boton_korea_del_sur_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonInglaterra" to="." method="_on_boton_inglaterra_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonJapon" to="." method="_on_boton_japon_pressed"]
+[connection signal="pressed" from="Cuadricula/BotonSudafrica" to="." method="_on_boton_sudafrica_pressed"]

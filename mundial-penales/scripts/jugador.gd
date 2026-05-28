@@ -57,11 +57,12 @@ func patear():
 
 	await get_tree().create_timer(0.5).timeout
 
-	if is_instance_valid(pelota) and pelota.get_parent() == self:
-		pelota.reparent(get_tree().current_scene)
+	if is_instance_valid(pelota):
+		if pelota.get_parent() == self:
+			pelota.reparent(get_tree().current_scene)
+		
 		var vz = abs(fuerza.y) * 0.8
 		pelota.patear(fuerza, vz)
-		get_tree().create_timer(4.0).timeout.connect(pelota.queue_free)
 
 	if anim.is_playing() and anim.animation == "kick":
 		await anim.animation_finished

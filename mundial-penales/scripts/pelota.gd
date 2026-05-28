@@ -9,7 +9,6 @@ var ya_revise = false
 var pego_palo = false
 var atajada = false
 
-# posiciones del arco
 var palo_izq = 330.5
 var palo_der = 820.5
 var linea_gol = 337.0
@@ -18,12 +17,16 @@ var alto_travesano = 120.0
 var escala_max = 1.0
 var escala_min = 0.65
 var pos_y_inicio = 0.0
+var posicion_original: Vector2
+var padre_original: Node
 
 @onready var anim = $AnimatedSprite2D
 @onready var col = $CollisionShape2D
 
 func _ready():
 	anim.play("idle")
+	posicion_original = global_position
+	padre_original = get_parent()
 
 func patear(fuerza, vz):
 	se_mueve = true
@@ -36,6 +39,13 @@ func patear(fuerza, vz):
 	pos_y_inicio = global_position.y
 	anim.play("remate")
 	col.set_deferred("disabled", true)
+
+	if Global.contra_ia:
+		var arquero = get_node_or_null("/root/Cancha/arquero")
+		if arquero and arquero.has_method("reaccionar_ia"):
+			arquero.reaccionar_ia()
+
+	_resetear_despues_de_patear()
 
 func _process(delta):
 	if not se_mueve:
@@ -50,7 +60,6 @@ func _process(delta):
 	if col.disabled and global_position.y < linea_gol + 250 and not atajada:
 		col.set_deferred("disabled", false)
 
-	# rebote en el piso
 	if altura <= 0:
 		altura = 0
 		if abs(vel_z) > 80:
@@ -66,7 +75,6 @@ func _process(delta):
 
 	anim.position.y = -altura
 
-	# achica la pelota cuando se aleja
 	if pos_y_inicio != 0:
 		var prog = clamp(1.0 - (global_position.y - linea_gol) / (pos_y_inicio - linea_gol), 0.0, 1.0)
 		var esc = lerp(escala_max, escala_min, prog)
@@ -95,7 +103,6 @@ func revisar_atajada():
 		vel.y = abs(vel.y) * 0.6
 		vel_z = vel_z * 0.3
 		col.set_deferred("disabled", true)
-		print("ATAJADAAA")
 
 func revisar_palos():
 	if global_position.y > linea_gol or global_position.y < linea_gol - 100:
@@ -108,7 +115,6 @@ func revisar_palos():
 	var toca_der = abs(global_position.x - palo_der) < margen and global_position.x >= palo_der - margen
 
 	if toca_izq or toca_der:
-		print("PALO!")
 		pego_palo = true
 		ya_revise = true
 		vel.x = -vel.x * 0.6
@@ -127,16 +133,32 @@ func revisar_gol():
 	var abajo_travesano = altura < alto_travesano
 
 	if entre_palos and abajo_travesano:
-		print("GOOOL!")
 		vel *= 0.15
 		vel_z *= 0.3
 	elif not abajo_travesano:
-		print("Por arriba!")
+		pass
 	elif not entre_palos:
-		print("Afuera!")
 		vel *= 0.5
 	else:
 		if abs(altura - alto_travesano) < 15.0 and entre_palos:
-			print("TRAVESAÑO!")
 			vel_z = -vel_z * 0.4
 			vel.y = -vel.y * 0.5
+
+func _resetear_despues_de_patear() -> void:
+	await get_tree().create_timer(5.0).timeout
+	
+	if padre_original != null:
+		reparent(padre_original)
+		
+	se_mueve = false
+	vel = Vector2.ZERO
+	vel_z = 0.0
+	altura = 0.0
+	ya_revise = false
+	pego_palo = false
+	atajada = false
+	global_position = posicion_original
+	anim.position.y = 0
+	anim.scale = Vector2(0.4, 0.4)
+	anim.play("idle")
+	col.set_deferred("disabled", false)

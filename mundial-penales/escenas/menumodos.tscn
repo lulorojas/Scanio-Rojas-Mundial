@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://csr82j0fe7vei"]
 
 [ext_resource type="Texture2D" uid="uid://nu0le075ubkp" path="res://assets/fondos/fondo-campo-futbol-gradiente_52683-66772.png" id="1_227ip"]
+[ext_resource type="Script" uid="uid://cc80d7202c4tc" path="res://scripts/menumodos.gd" id="1_tvqer"]
 [ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="2_tvqer"]
 
 [sub_resource type="Theme" id="Theme_jw4h4"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tvqer")
 
 [node name="Fondo" type="TextureRect" parent="." unique_id=2049473963]
 layout_mode = 0
@@ -41,3 +43,6 @@ text = "     SOLITARIO     "
 [node name="Boton1VS1" type="Button" parent="Cuadricula" unique_id=2037542668]
 layout_mode = 2
 text = "1  VS  1"
+
+[connection signal="pressed" from="Cuadricula/BotonSolitario" to="." method="_on_boton_solitario_pressed"]
+[connection signal="pressed" from="Cuadricula/Boton1VS1" to="." method="_on_boton_1vs_1_pressed"]

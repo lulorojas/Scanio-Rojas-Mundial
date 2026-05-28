@@ -1,11 +1,41 @@
-extends Node
+extends Control
 
+func _iniciar_partido(equipo: String):
+	Global.equipo_seleccionado = equipo
+	get_tree().change_scene_to_file("res://escenas/cancha.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_boton_españa_pressed() -> void:
+	_iniciar_partido("espana")
 
+func _on_boton_italia_pressed() -> void:
+	_iniciar_partido("italia")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_boton_belgica_pressed() -> void:
+	_iniciar_partido("belgica")
+
+func _on_boton_francia_pressed() -> void:
+	_iniciar_partido("francia")
+
+func _on_boton_peru_pressed() -> void:
+	_iniciar_partido("peru")
+
+func _on_boton_uruguay_pressed() -> void:
+	_iniciar_partido("uruguay")
+
+func _on_boton_brasil_pressed() -> void:
+	_iniciar_partido("brasil")
+
+func _on_boton_argentina_pressed() -> void:
+	_iniciar_partido("argentina")
+
+func _on_boton_korea_del_sur_pressed() -> void:
+	_iniciar_partido("korea_del_sur")
+
+func _on_boton_inglaterra_pressed() -> void:
+	_iniciar_partido("inglaterra")
+
+func _on_boton_japon_pressed() -> void:
+	_iniciar_partido("japon")
+
+func _on_boton_sudafrica_pressed() -> void:
+	_iniciar_partido("sudafrica")
