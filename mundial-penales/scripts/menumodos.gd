@@ -16,5 +16,5 @@ func _on_boton_solitario_pressed() -> void:
 
 
 func _on_boton_1vs_1_pressed() -> void:
-	Global.contra_ia = true
+	Global.contra_ia = false
 	get_tree().change_scene_to_file("res://escenas/menuselecciones.tscn")

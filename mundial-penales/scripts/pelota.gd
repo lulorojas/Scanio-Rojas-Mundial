@@ -1,164 +1,181 @@
+
 extends Area2D
 
-var vel = Vector2.ZERO
-var vel_z = 0.0
-var altura = 0.0
-var gravedad = 600.0
-var se_mueve = false
-var ya_revise = false
-var pego_palo = false
-var atajada = false
+var velocidad: Vector2 = Vector2.ZERO
+var velocidad_z: float = 0.0
+var altura: float = 0.0
+var gravedad: float = 600.0
+var en_movimiento: bool = false
+var ya_revisado: bool = false
+var golpeo_palo: bool = false
+var fue_atajada: bool = false
 
-var palo_izq = 330.5
-var palo_der = 820.5
-var linea_gol = 337.0
-var alto_travesano = 120.0
+var palo_izquierdo: float = 330.5
+var palo_derecho: float = 820.5
+var linea_de_gol: float = 337.0
+var altura_travesano: float = 120.0
 
-var escala_max = 1.0
-var escala_min = 0.65
-var pos_y_inicio = 0.0
+var escala_maxima: float = 1.0
+var escala_minima: float = 0.65
+var posicion_y_inicial: float = 0.0
 var posicion_original: Vector2
-var padre_original: Node
+var nodo_padre_original: Node
 
-@onready var anim = $AnimatedSprite2D
-@onready var col = $CollisionShape2D
+@onready var animacion = $AnimatedSprite2D
+@onready var colision = $CollisionShape2D
 
 func _ready():
-	anim.play("idle")
+	animacion.play("idle")
 	posicion_original = global_position
-	padre_original = get_parent()
+	nodo_padre_original = get_parent()
 
-func patear(fuerza, vz):
-	se_mueve = true
-	vel = fuerza
-	vel_z = vz
+func patear(fuerza_inicial: Vector2, fuerza_vertical: float):
+	en_movimiento = true
+	velocidad = fuerza_inicial
+	velocidad_z = fuerza_vertical
 	altura = 0.0
-	ya_revise = false
-	pego_palo = false
-	atajada = false
-	pos_y_inicio = global_position.y
-	anim.play("remate")
-	col.set_deferred("disabled", true)
+	ya_revisado = false
+	golpeo_palo = false
+	fue_atajada = false
+	posicion_y_inicial = global_position.y
+	animacion.play("remate")
+	colision.set_deferred("disabled", true)
 
-	if Global.contra_ia:
+	if Global.ia and Global.turno_jugador:
 		var arquero = get_node_or_null("/root/Cancha/arquero")
 		if arquero and arquero.has_method("reaccionar_ia"):
 			arquero.reaccionar_ia()
 
-	_resetear_despues_de_patear()
+	_reiniciar_despues_de_tiro()
 
-func _process(delta):
-	if not se_mueve:
+func _process(delta_tiempo: float):
+	if not en_movimiento:
 		return
 
-	var vz_antes = vel_z
-	vel_z -= gravedad * delta
-	altura += ((vz_antes + vel_z) / 2.0) * delta
+	var velocidad_z_anterior = velocidad_z
+	velocidad_z -= gravedad * delta_tiempo
+	altura += ((velocidad_z_anterior + velocidad_z) / 2.0) * delta_tiempo
 
-	global_position += vel * delta
+	global_position += velocidad * delta_tiempo
 
-	if col.disabled and global_position.y < linea_gol + 250 and not atajada:
-		col.set_deferred("disabled", false)
+	if colision.disabled and global_position.y < linea_de_gol + 250 and not fue_atajada:
+		colision.set_deferred("disabled", false)
 
 	if altura <= 0:
 		altura = 0
-		if abs(vel_z) > 80:
-			vel_z = -vel_z * 0.3
-			vel *= 0.7
+		if abs(velocidad_z) > 80:
+			velocidad_z = -velocidad_z * 0.3
+			velocidad *= 0.7
 		else:
-			vel_z = 0
-			vel *= 0.92
-			if vel.length() < 10.0:
-				vel = Vector2.ZERO
-				se_mueve = false
-				anim.play("idle")
+			velocidad_z = 0
+			velocidad *= 0.92
+			if velocidad.length() < 10.0:
+				velocidad = Vector2.ZERO
+				en_movimiento = false
+				animacion.play("idle")
 
-	anim.position.y = -altura
+	animacion.position.y = -altura
 
-	if pos_y_inicio != 0:
-		var prog = clamp(1.0 - (global_position.y - linea_gol) / (pos_y_inicio - linea_gol), 0.0, 1.0)
-		var esc = lerp(escala_max, escala_min, prog)
-		anim.scale = Vector2(esc, esc) * Vector2(0.4, 0.4)
+	if posicion_y_inicial != 0:
+		var progreso_vuelo = clamp(1.0 - (global_position.y - linea_de_gol) / (posicion_y_inicial - linea_de_gol), 0.0, 1.0)
+		var escala_actual = lerp(escala_maxima, escala_minima, progreso_vuelo)
+		animacion.scale = Vector2(escala_actual, escala_actual) * Vector2(0.4, 0.4)
 
-	if not ya_revise:
-		revisar_atajada()
-		revisar_palos()
-		revisar_gol()
+	if not ya_revisado:
+		_comprobar_atajada()
+		_comprobar_palos()
+		_comprobar_gol()
 
-func revisar_atajada():
-	if atajada:
+func _comprobar_atajada():
+	if fue_atajada: 
 		return
 	var arquero = get_node_or_null("/root/Cancha/arquero")
-	if arquero == null:
+	if not arquero or not arquero.esta_ocupado: 
 		return
-	if arquero.esta_ocupado == false:
+	if global_position.y > linea_de_gol + 80: 
 		return
-	var pos_arq = arquero.colision.global_position
-	var dif_x = abs(global_position.x - pos_arq.x)
-	var dif_y = abs(global_position.y - pos_arq.y)
-	if dif_x < 55 and dif_y < 90:
-		atajada = true
-		ya_revise = true
-		vel.x = -vel.x * 0.5
-		vel.y = abs(vel.y) * 0.6
-		vel_z = vel_z * 0.3
-		col.set_deferred("disabled", true)
-
-func revisar_palos():
-	if global_position.y > linea_gol or global_position.y < linea_gol - 100:
-		return
-	if altura > alto_travesano:
-		return
-
-	var margen = 18.0
-	var toca_izq = abs(global_position.x - palo_izq) < margen and global_position.x <= palo_izq + margen
-	var toca_der = abs(global_position.x - palo_der) < margen and global_position.x >= palo_der - margen
-
-	if toca_izq or toca_der:
-		pego_palo = true
-		ya_revise = true
-		vel.x = -vel.x * 0.6
-		vel.y = abs(vel.y) * 0.5
-		vel_z *= 0.5
-
-func revisar_gol():
-	if global_position.y > linea_gol:
-		return
-	if atajada:
-		return
-
-	ya_revise = true
-
-	var entre_palos = global_position.x > palo_izq and global_position.x < palo_der
-	var abajo_travesano = altura < alto_travesano
-
-	if entre_palos and abajo_travesano:
-		vel *= 0.15
-		vel_z *= 0.3
-	elif not abajo_travesano:
-		pass
-	elif not entre_palos:
-		vel *= 0.5
+	
+	var centro_arquero_x = arquero.posicion_inicial.x + arquero.colision.position.x
+	var direccion_horizontal_arquero = arquero.direccion_horizontal_actual
+	var posicion_pelota_x = global_position.x
+	var esta_en_zona = false
+	
+	if direccion_horizontal_arquero == -1:
+		esta_en_zona = posicion_pelota_x < centro_arquero_x + 40.0
+	elif direccion_horizontal_arquero == 1:
+		esta_en_zona = posicion_pelota_x > centro_arquero_x - 40.0
 	else:
-		if abs(altura - alto_travesano) < 15.0 and entre_palos:
-			vel_z = -vel_z * 0.4
-			vel.y = -vel.y * 0.5
+		esta_en_zona = abs(posicion_pelota_x - centro_arquero_x) < 100.0
+		
+	if esta_en_zona and arquero.altura_compatible(altura):
+		fue_atajada = true
+		ya_revisado = true
+		velocidad.x = -velocidad.x * 0.5
+		velocidad.y = abs(velocidad.y) * 0.6
+		velocidad_z *= 0.3
+		colision.set_deferred("disabled", true)
 
-func _resetear_despues_de_patear() -> void:
+func _comprobar_palos():
+	if global_position.y > linea_de_gol or global_position.y < linea_de_gol - 100:
+		return
+	if altura > altura_travesano:
+		return
+
+	var margen_error = 18.0
+	var posicion_pelota_x = global_position.x
+	var choco_izquierdo = abs(posicion_pelota_x - palo_izquierdo) < margen_error and posicion_pelota_x <= palo_izquierdo + margen_error
+	var choco_derecho = abs(posicion_pelota_x - palo_derecho) < margen_error and posicion_pelota_x >= palo_derecho - margen_error
+
+	if choco_izquierdo or choco_derecho:
+		golpeo_palo = true
+		ya_revisado = true
+		velocidad.x = -velocidad.x * 0.6
+		velocidad.y = abs(velocidad.y) * 0.5
+		velocidad_z *= 0.5
+
+func _comprobar_gol():
+	if global_position.y > linea_de_gol or fue_atajada:
+		return
+
+	ya_revisado = true
+
+	var posicion_pelota_x = global_position.x
+	var esta_dentro_arco = posicion_pelota_x > palo_izquierdo and posicion_pelota_x < palo_derecho
+	var paso_bajo_travesano = altura < altura_travesano
+
+	if esta_dentro_arco and paso_bajo_travesano:
+		velocidad *= 0.15
+		velocidad_z *= 0.3
+	elif not paso_bajo_travesano and esta_dentro_arco:
+		if abs(altura - altura_travesano) < 15.0:
+			velocidad_z = -velocidad_z * 0.4
+			velocidad.y = -velocidad.y * 0.5
+	elif not esta_dentro_arco:
+		velocidad *= 0.5
+
+func _reiniciar_despues_de_tiro() -> void:
 	await get_tree().create_timer(5.0).timeout
 	
-	if padre_original != null:
-		reparent(padre_original)
+	if nodo_padre_original:
+		reparent(nodo_padre_original)
 		
-	se_mueve = false
-	vel = Vector2.ZERO
-	vel_z = 0.0
+	en_movimiento = false
+	velocidad = Vector2.ZERO
+	velocidad_z = 0.0
 	altura = 0.0
-	ya_revise = false
-	pego_palo = false
-	atajada = false
+	ya_revisado = false
+	golpeo_palo = false
+	fue_atajada = false
 	global_position = posicion_original
-	anim.position.y = 0
-	anim.scale = Vector2(0.4, 0.4)
-	anim.play("idle")
-	col.set_deferred("disabled", false)
+	animacion.position.y = 0
+	animacion.scale = Vector2(0.4, 0.4)
+	animacion.play("idle")
+	colision.set_deferred("disabled", false)
+
+	if Global.ia:
+		Global.turno_jugador = not Global.turno_jugador
+		if not Global.turno_jugador:
+			await get_tree().create_timer(1.0).timeout
+			var jugador = get_node_or_null("/root/Cancha/Jugador")
+			if jugador and jugador.has_method("patear_ia"):
+				jugador.patear_ia()

@@ -1,4 +1,7 @@
+# global.gd
 extends Node
 
-var equipo_seleccionado: String = "argentina"
-var contra_ia: bool = false
+var equipo: String = "argentina"
+var ia: bool = false
+var ronda: String = "octavos"
+var turno_jugador: bool = true
