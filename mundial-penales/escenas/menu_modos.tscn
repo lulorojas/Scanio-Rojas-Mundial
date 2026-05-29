@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://db0o8cylwy5ao"]
+
+[ext_resource type="Script" uid="uid://c5q083y8irnpf" path="res://scripts/menu_modos.gd" id="1_m3s2s"]
+[ext_resource type="Texture2D" uid="uid://cg3oofas5gh0a" path="res://assets/fondos/fondo_menu.webp" id="2_tmwdj"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="3_uphvm"]
+
+[sub_resource type="Theme" id="Theme_451gt"]
+default_font_size = 25
+Button/colors/font_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/colors/font_hover_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/constants/h_separation = 7
+Button/font_sizes/font_size = 45
+Button/styles/hover = ExtResource("3_uphvm")
+Button/styles/normal = ExtResource("3_uphvm")
+
+[node name="menu_modos" type="Control" unique_id=1192512712]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 299.0
+offset_top = 167.0
+offset_right = 299.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m3s2s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=96981557]
+layout_mode = 0
+offset_left = -303.0
+offset_top = -163.0
+offset_right = 848.0
+offset_bottom = 830.0
+texture = ExtResource("2_tmwdj")
+
+[node name="Cuadricula" type="GridContainer" parent="." unique_id=1616972811]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 81.0
+offset_right = 395.0
+offset_bottom = 611.0
+theme = SubResource("Theme_451gt")
+theme_override_constants/h_separation = 224
+theme_override_constants/v_separation = 400
+
+[node name="Solitario" type="Button" parent="Cuadricula" unique_id=87811328]
+layout_mode = 2
+text = "SOLITARIO"
+
+[node name="1v1" type="Button" parent="Cuadricula" unique_id=470810754]
+layout_mode = 2
+text = "1v1"
+
+[connection signal="pressed" from="Cuadricula/Solitario" to="." method="_on_solitario_pressed"]
+[connection signal="pressed" from="Cuadricula/1v1" to="." method="_on_v_1_pressed"]
