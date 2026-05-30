@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c3yh5yamxhv5m"]
+
+[ext_resource type="Texture2D" uid="uid://dsvm52jwatncx" path="res://assets/fondos/fondo_fases.jpg" id="1_8mlm4"]
+[ext_resource type="Script" uid="uid://q2m1x0x14q8t" path="res://scripts/torneo.gd" id="1_eygol"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="1_h2il6"]
+[ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="3_eygol"]
+[ext_resource type="FontFile" uid="uid://cwj7fquaf7hph" path="res://assets/fuentes/Cuprum/Cuprum-Italic-VariableFont_wght.ttf" id="4_a8ykt"]
+
+[sub_resource type="Theme" id="Theme_jkj0j"]
+default_font_size = 25
+Button/colors/font_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/colors/font_hover_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
+Button/constants/h_separation = 7
+Button/font_sizes/font_size = 45
+Button/styles/hover = ExtResource("1_h2il6")
+Button/styles/normal = ExtResource("1_h2il6")
+
+[node name="Torneo" type="Control" unique_id=338174700]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eygol")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=732454689]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 1001.0
+texture = ExtResource("1_8mlm4")
+
+[node name="Jugar" type="Button" parent="." unique_id=871541283]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 709.0
+offset_right = 824.0
+offset_bottom = 780.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("1_h2il6")
+text = "Jugar"
+
+[node name="Cuadricula" type="GridContainer" parent="." unique_id=1944930803]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 120.0
+offset_right = 980.0
+offset_bottom = 616.0
+theme = SubResource("Theme_jkj0j")
+theme_override_constants/h_separation = 224
+theme_override_constants/v_separation = 130
+
+[node name="Fase" type="Label" parent="Cuadricula" unique_id=157270868]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_eygol")
+theme_override_font_sizes/font_size = 120
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Partido" type="Label" parent="Cuadricula" unique_id=223687416]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_a8ykt")
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="Jugar" to="." method="_on_jugar_pressed"]

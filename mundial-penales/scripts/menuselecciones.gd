@@ -1,8 +1,11 @@
 extends Control
 
-func _iniciar_partido(equipo: String):
-	Global.equipo_seleccionado = equipo
-	get_tree().change_scene_to_file("res://escenas/cancha.tscn")
+func _iniciar_partido(seleccion: String):
+	Global.equipo = seleccion
+	if Global.ia:
+		get_tree().change_scene_to_file("res://escenas/torneo.tscn")
+	else:
+		get_tree().change_scene_to_file("res://escenas/cancha.tscn")
 
 func _on_boton_españa_pressed() -> void:
 	_iniciar_partido("espana")

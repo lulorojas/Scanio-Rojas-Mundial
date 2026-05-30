@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/derrota.gd" id="1_derr"]
+[ext_resource type="Texture2D" uid="uid://dsvm52jwatncx" path="res://assets/fondos/fondo_fases.jpg" id="2_fondo"]
+[ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="3_font"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="4_btn"]
+
+[node name="Derrota" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_derr")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 1001.0
+texture = ExtResource("2_fondo")
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 180.0
+offset_right = 950.0
+offset_bottom = 320.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 90
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resultado" type="Label" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 350.0
+offset_right = 1000.0
+offset_bottom = 460.0
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 600.0
+offset_right = 764.0
+offset_bottom = 670.0
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("4_btn")
+text = "Volver al menu"
+
+[connection signal="pressed" from="Volver" to="." method="_on_volver_pressed"]

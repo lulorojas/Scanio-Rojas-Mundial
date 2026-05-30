@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dwq444ma1qeqp"]
+[gd_scene format=3 uid="uid://b5hltwwemsumi"]
 
 [ext_resource type="Script" uid="uid://bghu3eck8p6w0" path="res://scripts/arquero.gd" id="1_8mxbl"]
 [ext_resource type="Texture2D" uid="uid://ci2h37i153310" path="res://assets/arqueros/arqueroblancoamarillo.png" id="2_8mxbl"]
@@ -59,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5iqqe"]
-size = Vector2(68, 156)
+size = Vector2(62, 130)
 
 [node name="arquero" type="Area2D" unique_id=1598289278]
 collision_layer = 9
@@ -67,11 +67,11 @@ collision_mask = 4
 script = ExtResource("1_8mxbl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1897599771]
-position = Vector2(353.5, 121.75)
-scale = Vector2(1.8906248, 3.097015)
+position = Vector2(358.5, 137.20149)
+scale = Vector2(1.7343746, 2.6215842)
 sprite_frames = SubResource("SpriteFrames_qk0s8")
 animation = &"atajar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1646763581]
-position = Vector2(355, 132)
+position = Vector2(358, 145)
 shape = SubResource("RectangleShape2D_5iqqe")

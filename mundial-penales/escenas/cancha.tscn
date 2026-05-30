@@ -2,16 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://cj8q23qe2p7wp" path="res://assets/extras/fondo.png" id="1_76hsk"]
 [ext_resource type="PackedScene" uid="uid://vw4vpy8tv4ns" path="res://escenas/jugador.tscn" id="1_qb8kc"]
-[ext_resource type="PackedScene" uid="uid://dwq444ma1qeqp" path="res://escenas/arquero.tscn" id="3_ilx2b"]
+[ext_resource type="PackedScene" uid="uid://b5hltwwemsumi" path="res://escenas/arquero.tscn" id="3_ilx2b"]
 [ext_resource type="Texture2D" uid="uid://ckcgk1u2yncfo" path="res://assets/extras/arco.png" id="3_yokxi"]
+[ext_resource type="Script" uid="uid://bg12r3u43t12b" path="res://scripts/cancha.gd" id="5_cancha"]
+[ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="6_font"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01oa3"]
-size = Vector2(447, 163)
+size = Vector2(472, 163)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
 size = Vector2(1053.25, 183.125)
 
 [node name="Cancha" type="Node2D" unique_id=1947434201]
+script = ExtResource("5_cancha")
 
 [node name="fondo" type="Sprite2D" parent="." unique_id=939338616]
 position = Vector2(611.00006, 537)
@@ -26,7 +29,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arco" unique_id=1311252230]
-position = Vector2(613, 229)
+position = Vector2(622, 229)
 shape = SubResource("RectangleShape2D_01oa3")
 
 [node name="Afuera" type="Area2D" parent="." unique_id=1983435087]
@@ -51,4 +54,26 @@ scale = Vector2(0.9914903, 0.9599718)
 texture = ExtResource("3_yokxi")
 
 [node name="arquero" parent="." unique_id=1598289278 instance=ExtResource("3_ilx2b")]
-position = Vector2(269, 159)
+position = Vector2(259, 140)
+distancia_horizontal = 140.0
+distancia_vertical = 90.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=952245207]
+
+[node name="Marcador1" type="Label" parent="CanvasLayer" unique_id=1371877041]
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 307.0
+offset_bottom = 56.0
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 35
+vertical_alignment = 1
+
+[node name="Marcador2" type="Label" parent="CanvasLayer" unique_id=1682760758]
+offset_left = 14.0
+offset_top = 74.0
+offset_right = 312.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("6_font")
+theme_override_font_sizes/font_size = 35
+vertical_alignment = 1
