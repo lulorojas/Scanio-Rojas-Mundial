@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://3hv8r7w2tg3e"]
+
+[ext_resource type="Texture2D" uid="uid://csoe3shgknjs4" path="res://assets/jugadores/belgica/standard/idle.png" id="1_43yc6"]
+[ext_resource type="Texture2D" uid="uid://b2adnf4oc30xw" path="res://assets/jugadores/belgica/standard/run.png" id="2_knq1d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4by1"]
+atlas = ExtResource("1_43yc6")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_negeq"]
+atlas = ExtResource("1_43yc6")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53l6k"]
+atlas = ExtResource("2_knq1d")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0lt4"]
+atlas = ExtResource("2_knq1d")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x31jl"]
+atlas = ExtResource("2_knq1d")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n7nr"]
+atlas = ExtResource("2_knq1d")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4by1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_negeq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53l6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0lt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x31jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n7nr")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]

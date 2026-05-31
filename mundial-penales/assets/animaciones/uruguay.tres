@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ctqpsifdb7usa"]
+
+[ext_resource type="Texture2D" uid="uid://bou6yocug0lbp" path="res://assets/jugadores/uruguay/standard/idle.png" id="1_tfxab"]
+[ext_resource type="Texture2D" uid="uid://bgkctfw0de8r7" path="res://assets/jugadores/uruguay/standard/run.png" id="2_x2v6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_046qb"]
+atlas = ExtResource("1_tfxab")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjbt8"]
+atlas = ExtResource("1_tfxab")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq726"]
+atlas = ExtResource("2_x2v6i")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvtfg"]
+atlas = ExtResource("2_x2v6i")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5qbu"]
+atlas = ExtResource("2_x2v6i")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5x42"]
+atlas = ExtResource("2_x2v6i")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpqq6"]
+atlas = ExtResource("2_x2v6i")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_046qb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjbt8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq726")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvtfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5qbu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5x42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpqq6")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]

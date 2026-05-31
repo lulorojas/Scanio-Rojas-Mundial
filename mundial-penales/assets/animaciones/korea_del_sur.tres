@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c7qs8nrhnxxgk"]
+
+[ext_resource type="Texture2D" uid="uid://bjy5xhk8so6te" path="res://assets/jugadores/korea_del_sur/standard/idle.png" id="1_qtgko"]
+[ext_resource type="Texture2D" uid="uid://bg3kklpvtjh1s" path="res://assets/jugadores/korea_del_sur/standard/run.png" id="2_38vb2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfibv"]
+atlas = ExtResource("1_qtgko")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcm1r"]
+atlas = ExtResource("1_qtgko")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oaj1"]
+atlas = ExtResource("2_38vb2")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g4eu"]
+atlas = ExtResource("2_38vb2")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_140mk"]
+atlas = ExtResource("2_38vb2")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s2q2"]
+atlas = ExtResource("2_38vb2")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufycj"]
+atlas = ExtResource("2_38vb2")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfibv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcm1r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6oaj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g4eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_140mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s2q2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufycj")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]

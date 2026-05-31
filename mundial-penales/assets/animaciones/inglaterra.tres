@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://tg53388h013y"]
+
+[ext_resource type="Texture2D" uid="uid://xhpnqqjrhb2q" path="res://assets/jugadores/inglaterra/standard/idle.png" id="1_b1kog"]
+[ext_resource type="Texture2D" uid="uid://dabq2xrk615x1" path="res://assets/jugadores/inglaterra/standard/run.png" id="2_7ytpr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5obs"]
+atlas = ExtResource("1_b1kog")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jnvv"]
+atlas = ExtResource("1_b1kog")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blk5l"]
+atlas = ExtResource("2_7ytpr")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71dc0"]
+atlas = ExtResource("2_7ytpr")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orw7n"]
+atlas = ExtResource("2_7ytpr")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2oyb"]
+atlas = ExtResource("2_7ytpr")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5obs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jnvv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blk5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71dc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orw7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2oyb")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]

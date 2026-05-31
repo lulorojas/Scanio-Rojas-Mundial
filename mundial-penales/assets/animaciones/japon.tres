@@ -1,0 +1,66 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c2sa2du48utux"]
+
+[ext_resource type="Texture2D" uid="uid://kp8piisgioww" path="res://assets/jugadores/japon/standard/idle.png" id="1_kyvj4"]
+[ext_resource type="Texture2D" uid="uid://d1phichktvuub" path="res://assets/jugadores/japon/standard/run.png" id="2_gvyuj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h517"]
+atlas = ExtResource("1_kyvj4")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxt3l"]
+atlas = ExtResource("1_kyvj4")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlkhg"]
+atlas = ExtResource("2_gvyuj")
+region = Rect2(384, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3kaq"]
+atlas = ExtResource("2_gvyuj")
+region = Rect2(320, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31ocp"]
+atlas = ExtResource("2_gvyuj")
+region = Rect2(256, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wft2g"]
+atlas = ExtResource("2_gvyuj")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j6he"]
+atlas = ExtResource("2_gvyuj")
+region = Rect2(192, 192, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h517")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxt3l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlkhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3kaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31ocp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wft2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j6he")
+}],
+"loop": false,
+"name": &"kick",
+"speed": 8.0
+}]
