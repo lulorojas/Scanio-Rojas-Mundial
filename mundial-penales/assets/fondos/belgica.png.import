@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b54vhtex8qi3x"
-path="res://.godot/imported/south-korea-flag-vector-wavy-600nw-2670013953-removebg-preview.png-93c2c17c5cdcd1f9f9e9c27be8c83445.ctex"
+uid="uid://c27hrqfq24yvt"
+path="res://.godot/imported/belgica.png-44317062ad0c62919e4ac6ea64ba6655.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/south-korea-flag-vector-wavy-600nw-2670013953-removebg-preview.png"
-dest_files=["res://.godot/imported/south-korea-flag-vector-wavy-600nw-2670013953-removebg-preview.png-93c2c17c5cdcd1f9f9e9c27be8c83445.ctex"]
+source_file="res://assets/fondos/belgica.png"
+dest_files=["res://.godot/imported/belgica.png-44317062ad0c62919e4ac6ea64ba6655.ctex"]
 
 [params]
 

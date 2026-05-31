@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bugupna0n8sfi"
-path="res://.godot/imported/flag-japan_1f1ef-1f1f5 (1).png-99c41aef433b41b94c23d979c63841da.ctex"
+uid="uid://b54vhtex8qi3x"
+path="res://.godot/imported/korea_del_sur.png-fa4143ce933f5dade45c4e423fbae651.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/flag-japan_1f1ef-1f1f5 (1).png"
-dest_files=["res://.godot/imported/flag-japan_1f1ef-1f1f5 (1).png-99c41aef433b41b94c23d979c63841da.ctex"]
+source_file="res://assets/fondos/korea_del_sur.png"
+dest_files=["res://.godot/imported/korea_del_sur.png-fa4143ce933f5dade45c4e423fbae651.ctex"]
 
 [params]
 

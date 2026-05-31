@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6f77cw87b8bt"
-path="res://.godot/imported/5344559-removebg-preview.png-6be8afc2f66db0b23f37a2425af128f7.ctex"
+uid="uid://dx461i7kucr0f"
+path="res://.godot/imported/brasil.png-a805d1e719341a5ce6f1461505e2d3aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/5344559-removebg-preview.png"
-dest_files=["res://.godot/imported/5344559-removebg-preview.png-6be8afc2f66db0b23f37a2425af128f7.ctex"]
+source_file="res://assets/fondos/brasil.png"
+dest_files=["res://.godot/imported/brasil.png-a805d1e719341a5ce6f1461505e2d3aa.ctex"]
 
 [params]
 

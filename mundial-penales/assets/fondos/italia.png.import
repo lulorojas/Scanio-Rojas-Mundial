@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvexi4h0b8amc"
-path="res://.godot/imported/bandera-francia-pixel-art_985537-23-removebg-preview.png-482b1171952219d83190d05ea9f589e2.ctex"
+uid="uid://4ghd45jmdyjt"
+path="res://.godot/imported/italia.png-16f6aa621a8b8512473022f15b5d531f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/bandera-francia-pixel-art_985537-23-removebg-preview.png"
-dest_files=["res://.godot/imported/bandera-francia-pixel-art_985537-23-removebg-preview.png-482b1171952219d83190d05ea9f589e2.ctex"]
+source_file="res://assets/fondos/italia.png"
+dest_files=["res://.godot/imported/italia.png-16f6aa621a8b8512473022f15b5d531f.ctex"]
 
 [params]
 

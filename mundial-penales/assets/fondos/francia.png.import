@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4ghd45jmdyjt"
-path="res://.godot/imported/185332604-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-italy-removebg-preview.png-1dedc97140d50205e7bda52bba51ea1f.ctex"
+uid="uid://bvexi4h0b8amc"
+path="res://.godot/imported/francia.png-ba9e147b2096a1b3f23991a8279a6bfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/185332604-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-italy-removebg-preview.png"
-dest_files=["res://.godot/imported/185332604-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-italy-removebg-preview.png-1dedc97140d50205e7bda52bba51ea1f.ctex"]
+source_file="res://assets/fondos/francia.png"
+dest_files=["res://.godot/imported/francia.png-ba9e147b2096a1b3f23991a8279a6bfc.ctex"]
 
 [params]
 

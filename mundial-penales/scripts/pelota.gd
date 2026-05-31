@@ -162,14 +162,26 @@ func _reiniciar_despues():
 	anim.scale = Vector2(0.4, 0.4)
 	anim.play("idle")
 	col.set_deferred("disabled", false)
+	var jug = get_node_or_null("/root/Cancha/Jugador")
+	if not Global.turno_jugador and jug:
+		var ruta_equipo = "res://assets/animaciones/" + Global.equipo + ".tres"
+		var recurso_equipo = load(ruta_equipo)
+		if recurso_equipo:
+			jug.anim.sprite_frames = recurso_equipo
+		jug.anim.play("idle")
 	Global.penales_pateados += 1
 	if _chequear_fin():
 		return
 	if Global.ia:
 		Global.turno_jugador = not Global.turno_jugador
 		if not Global.turno_jugador:
-			await get_tree().create_timer(1.0).timeout
-			var jug = get_node_or_null("/root/Cancha/Jugador")
+			if jug:
+				var ruta_rival = "res://assets/animaciones/" + Global.rival_actual + ".tres"
+				var recurso_rival = load(ruta_rival)
+				if recurso_rival:
+					jug.anim.sprite_frames = recurso_rival
+				jug.anim.play("idle")
+			await get_tree().create_timer(2.0).timeout
 			if jug and jug.has_method("patear_ia"):
 				jug.patear_ia()
 

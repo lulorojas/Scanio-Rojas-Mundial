@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jlglpj8mrdjj"
-path="res://.godot/imported/186152365-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-argentina-removebg-preview.png-bbc9434e607dc47e102cab63027c48f7.ctex"
+uid="uid://6f77cw87b8bt"
+path="res://.godot/imported/peru.png-f56a7d3cbc4fde2133ec1314d6e399aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/186152365-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-argentina-removebg-preview.png"
-dest_files=["res://.godot/imported/186152365-colorful-simple-vector-flat-pixel-art-illustration-of-flowing-flag-of-argentina-removebg-preview.png-bbc9434e607dc47e102cab63027c48f7.ctex"]
+source_file="res://assets/fondos/peru.png"
+dest_files=["res://.godot/imported/peru.png-f56a7d3cbc4fde2133ec1314d6e399aa.ctex"]
 
 [params]
 

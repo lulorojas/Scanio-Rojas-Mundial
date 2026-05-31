@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtmy5yyuoa4j0"
-path="res://.godot/imported/png-clipart-spain-flag-flag-of-spain-guess-emoji-spain-flag-orange-removebg-preview.png-aa796388fc82e26eff8fcd4109673660.ctex"
+uid="uid://jlglpj8mrdjj"
+path="res://.godot/imported/argentina.png-eb923b1d5317d10fcd0865ebbde0e39d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fondos/png-clipart-spain-flag-flag-of-spain-guess-emoji-spain-flag-orange-removebg-preview.png"
-dest_files=["res://.godot/imported/png-clipart-spain-flag-flag-of-spain-guess-emoji-spain-flag-orange-removebg-preview.png-aa796388fc82e26eff8fcd4109673660.ctex"]
+source_file="res://assets/fondos/argentina.png"
+dest_files=["res://.godot/imported/argentina.png-eb923b1d5317d10fcd0865ebbde0e39d.ctex"]
 
 [params]
 
