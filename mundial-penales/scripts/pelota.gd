@@ -8,25 +8,26 @@ var en_movimiento = false
 var ya_revisado = false
 var golpeo_palo = false
 var fue_atajada = false
+var fue_gol = false
 
-var palo_izq = 330.5
-var palo_der = 820.5
+var palo_izquierdo = 330.5
+var palo_derecho = 820.5
 var linea_de_gol = 337.0
 var alto_travesano = 120.0
 
-var escala_max = 1.0
-var escala_min = 0.65
-var pos_y_inicio = 0.0
-var pos_original: Vector2
+var escala_maxima = 1.0
+var escala_minima = 0.65
+var posicion_y_inicio = 0.0
+var posicion_original: Vector2
 var padre_original: Node
 
-@onready var anim = $AnimatedSprite2D
-@onready var col = $CollisionShape2D
+@onready var animacion = $AnimatedSprite2D
+@onready var colision = $CollisionShape2D
 
 
 func _ready():
-	anim.play("idle")
-	pos_original = global_position
+	animacion.play("idle")
+	posicion_original = global_position
 	padre_original = get_parent()
 
 
@@ -38,25 +39,26 @@ func patear(fuerza: Vector2, fuerza_z: float):
 	ya_revisado = false
 	golpeo_palo = false
 	fue_atajada = false
-	pos_y_inicio = global_position.y
-	anim.play("remate")
-	col.set_deferred("disabled", true)
+	fue_gol = false
+	posicion_y_inicio = global_position.y
+	animacion.play("remate")
+	colision.set_deferred("disabled", true)
 	if Global.ia and Global.turno_jugador:
-		var arq = get_node_or_null("/root/Cancha/arquero")
-		if arq and arq.has_method("reaccionar_ia"):
-			arq.reaccionar_ia()
+		var arquero = get_node_or_null("/root/Cancha/arquero")
+		if arquero and arquero.has_method("reaccionar_ia"):
+			arquero.reaccionar_ia()
 	_reiniciar_despues()
 
 
-func _process(dt):
+func _process(delta):
 	if not en_movimiento:
 		return
-	var vz_ant = velocidad_z
-	velocidad_z -= gravedad * dt
-	altura += ((vz_ant + velocidad_z) / 2.0) * dt
-	global_position += velocidad * dt
-	if col.disabled and global_position.y < linea_de_gol + 250 and not fue_atajada:
-		col.set_deferred("disabled", false)
+	var velocidad_z_anterior = velocidad_z
+	velocidad_z -= gravedad * delta
+	altura += ((velocidad_z_anterior + velocidad_z) / 2.0) * delta
+	global_position += velocidad * delta
+	if colision.disabled and global_position.y < linea_de_gol + 250 and not fue_atajada:
+		colision.set_deferred("disabled", false)
 	if altura <= 0:
 		altura = 0
 		if abs(velocidad_z) > 80:
@@ -68,55 +70,55 @@ func _process(dt):
 			if velocidad.length() < 10.0:
 				velocidad = Vector2.ZERO
 				en_movimiento = false
-				anim.play("idle")
-	anim.position.y = -altura
-	if pos_y_inicio != 0:
-		var progreso = clamp(1.0 - (global_position.y - linea_de_gol) / (pos_y_inicio - linea_de_gol), 0.0, 1.0)
-		var esc = lerp(escala_max, escala_min, progreso)
-		anim.scale = Vector2(esc, esc) * Vector2(0.4, 0.4)
+				animacion.play("idle")
+	animacion.position.y = -altura
+	if posicion_y_inicio != 0:
+		var progreso = clamp(1.0 - (global_position.y - linea_de_gol) / (posicion_y_inicio - linea_de_gol), 0.0, 1.0)
+		var escala = lerp(escala_maxima, escala_minima, progreso)
+		animacion.scale = Vector2(escala, escala) * Vector2(0.4, 0.4)
 	if not ya_revisado:
-		_ver_atajada()
-		_ver_palos()
-		_ver_gol()
+		_verificar_atajada()
+		_verificar_palos()
+		_verificar_gol()
 
 
-func _ver_atajada():
+func _verificar_atajada():
 	if fue_atajada:
 		return
-	var arq = get_node_or_null("/root/Cancha/arquero")
-	if not arq or not arq.esta_ocupado:
+	var arquero = get_node_or_null("/root/Cancha/arquero")
+	if not arquero or not arquero.esta_ocupado:
 		return
 	if global_position.y > linea_de_gol + 80:
 		return
-	var centro_arq = arq.posicion_inicial.x + arq.colision.position.x
-	var dir_h = arq.direccion_horizontal_actual
-	var px = global_position.x
+	var centro_arquero = arquero.posicion_inicial.x + arquero.colision.position.x
+	var direccion_horizontal = arquero.direccion_horizontal_actual
+	var posicion_x = global_position.x
 	var en_zona = false
-	if dir_h == -1:
-		en_zona = px < centro_arq + 40.0
-	elif dir_h == 1:
-		en_zona = px > centro_arq - 40.0
+	if direccion_horizontal == -1:
+		en_zona = posicion_x < centro_arquero + 40.0
+	elif direccion_horizontal == 1:
+		en_zona = posicion_x > centro_arquero - 40.0
 	else:
-		en_zona = abs(px - centro_arq) < 100.0
-	if en_zona and arq.altura_compatible(altura):
+		en_zona = abs(posicion_x - centro_arquero) < 100.0
+	if en_zona and arquero.altura_compatible(altura):
 		fue_atajada = true
 		ya_revisado = true
 		velocidad.x = -velocidad.x * 0.5
 		velocidad.y = abs(velocidad.y) * 0.6
 		velocidad_z *= 0.3
-		col.set_deferred("disabled", true)
+		colision.set_deferred("disabled", true)
 
 
-func _ver_palos():
+func _verificar_palos():
 	if global_position.y > linea_de_gol or global_position.y < linea_de_gol - 100:
 		return
 	if altura > alto_travesano:
 		return
 	var margen = 18.0
-	var px = global_position.x
-	var pego_izq = abs(px - palo_izq) < margen and px <= palo_izq + margen
-	var pego_der = abs(px - palo_der) < margen and px >= palo_der - margen
-	if pego_izq or pego_der:
+	var posicion_x = global_position.x
+	var pego_izquierdo = abs(posicion_x - palo_izquierdo) < margen and posicion_x <= palo_izquierdo + margen
+	var pego_derecho = abs(posicion_x - palo_derecho) < margen and posicion_x >= palo_derecho - margen
+	if pego_izquierdo or pego_derecho:
 		golpeo_palo = true
 		ya_revisado = true
 		velocidad.x = -velocidad.x * 0.6
@@ -124,16 +126,17 @@ func _ver_palos():
 		velocidad_z *= 0.5
 
 
-func _ver_gol():
+func _verificar_gol():
 	if global_position.y > linea_de_gol or fue_atajada:
 		return
 	ya_revisado = true
-	var px = global_position.x
-	var dentro = px > palo_izq and px < palo_der
+	var posicion_x = global_position.x
+	var dentro = posicion_x > palo_izquierdo and posicion_x < palo_derecho
 	var bajo = altura < alto_travesano
 	if dentro and bajo:
 		velocidad *= 0.15
 		velocidad_z *= 0.3
+		fue_gol = true
 		if Global.turno_jugador:
 			Global.goles_jugador += 1
 		else:
@@ -148,6 +151,10 @@ func _ver_gol():
 
 func _reiniciar_despues():
 	await get_tree().create_timer(5.0).timeout
+	if Global.turno_jugador:
+		Global.resultados_jugador.append(fue_gol)
+	else:
+		Global.resultados_rival.append(fue_gol)
 	if padre_original:
 		reparent(padre_original)
 	en_movimiento = false
@@ -157,54 +164,70 @@ func _reiniciar_despues():
 	ya_revisado = false
 	golpeo_palo = false
 	fue_atajada = false
-	global_position = pos_original
-	anim.position.y = 0
-	anim.scale = Vector2(0.4, 0.4)
-	anim.play("idle")
-	col.set_deferred("disabled", false)
-	var jug = get_node_or_null("/root/Cancha/Jugador")
-	if not Global.turno_jugador and jug:
+	fue_gol = false
+	global_position = posicion_original
+	animacion.position.y = 0
+	animacion.scale = Vector2(0.4, 0.4)
+	animacion.play("idle")
+	colision.set_deferred("disabled", false)
+	var jugador = get_node_or_null("/root/Cancha/Jugador")
+	if not Global.turno_jugador and jugador:
 		var ruta_equipo = "res://assets/animaciones/" + Global.equipo + ".tres"
 		var recurso_equipo = load(ruta_equipo)
 		if recurso_equipo:
-			jug.anim.sprite_frames = recurso_equipo
-		jug.anim.play("idle")
+			jugador.animacion.sprite_frames = recurso_equipo
+		jugador.animacion.play("idle")
 	Global.penales_pateados += 1
 	if _chequear_fin():
 		return
 	if Global.ia:
 		Global.turno_jugador = not Global.turno_jugador
 		if not Global.turno_jugador:
-			if jug:
+			if jugador:
 				var ruta_rival = "res://assets/animaciones/" + Global.rival_actual + ".tres"
 				var recurso_rival = load(ruta_rival)
 				if recurso_rival:
-					jug.anim.sprite_frames = recurso_rival
-				jug.anim.play("idle")
+					jugador.animacion.sprite_frames = recurso_rival
+				jugador.animacion.play("idle")
 			await get_tree().create_timer(2.0).timeout
-			if jug and jug.has_method("patear_ia"):
-				jug.patear_ia()
+			if jugador and jugador.has_method("patear_ia"):
+				jugador.patear_ia()
 
 
 func _chequear_fin() -> bool:
-	var mitad = Global.max_penales
 	var pateados = Global.penales_pateados
-	if pateados >= mitad * 2:
-		if Global.goles_jugador != Global.goles_rival:
+	var maximo = Global.maximo_penales
+	if maximo == 5:
+		if pateados >= 10:
+			if Global.goles_jugador != Global.goles_rival:
+				_fin_partido()
+				return true
+			else:
+				Global.maximo_penales = 6
+				Global.resultados_jugador = []
+				Global.resultados_rival = []
+				return false
+		var pateados_jugador = ceili(pateados / 2.0)
+		var pateados_rival = pateados / 2
+		var restantes_jugador = 5 - pateados_jugador
+		var restantes_rival = 5 - pateados_rival
+		if Global.goles_jugador > Global.goles_rival + restantes_rival:
 			_fin_partido()
 			return true
-		else:
-			Global.max_penales += 1
-			return false
-	var rest_jug = mitad - ceili(pateados / 2.0)
-	var rest_riv = mitad - (pateados / 2)
-	if Global.goles_jugador > Global.goles_rival + rest_riv:
-		_fin_partido()
-		return true
-	if Global.goles_rival > Global.goles_jugador + rest_jug:
-		_fin_partido()
-		return true
-	return false
+		if Global.goles_rival > Global.goles_jugador + restantes_jugador:
+			_fin_partido()
+			return true
+		return false
+	else:
+		var penales_muerte_subita = pateados - 10
+		if penales_muerte_subita > 0 and penales_muerte_subita % 2 == 0:
+			if Global.goles_jugador != Global.goles_rival:
+				_fin_partido()
+				return true
+			else:
+				Global.resultados_jugador = []
+				Global.resultados_rival = []
+		return false
 
 
 func _fin_partido():
@@ -212,10 +235,11 @@ func _fin_partido():
 	if Global.torneo_activo:
 		if Global.goles_jugador > Global.goles_rival:
 			if Global.ronda == "final":
+				Global.avanzar_ronda()
 				get_tree().change_scene_to_file("res://escenas/campeon.tscn")
 			else:
 				Global.avanzar_ronda()
-				get_tree().change_scene_to_file("res://escenas/torneo.tscn")
+				get_tree().change_scene_to_file("res://escenas/fases.tscn")
 		else:
 			get_tree().change_scene_to_file("res://escenas/derrota.tscn")
 	else:

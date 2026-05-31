@@ -14,7 +14,7 @@ var maximo_pasos = 200
 var direccion_vertical_actual = 0
 var direccion_horizontal_actual = 0
 var probabilidad_error = {
-	"octavos": 0.75,
+	"octavos": 0.95,
 	"cuartos": 0.65,
 	"semis": 0.55,
 	"final": 0.38

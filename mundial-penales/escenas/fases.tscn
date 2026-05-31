@@ -1,0 +1,191 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://dsvm52jwatncx" path="res://assets/fondos/fondo_fases.jpg" id="1_fondo"]
+[ext_resource type="Script" path="res://scripts/fases.gd" id="2_script"]
+[ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="3_font"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="4_estilo"]
+
+[node name="Fases" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="Fondo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_fondo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MargenCentral" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="VBox" type="VBoxContainer" parent="MargenCentral"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Titulo" type="Label" parent="MargenCentral/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 60
+text = "FASES DEL TORNEO"
+horizontal_alignment = 1
+
+[node name="GridFases" type="HBoxContainer" parent="MargenCentral/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="PanelOctavos" type="PanelContainer" parent="MargenCentral/VBox/GridFases"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 200)
+
+[node name="VBox" type="VBoxContainer" parent="MargenCentral/VBox/GridFases/PanelOctavos"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="MargenCentral/VBox/GridFases/PanelOctavos"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "OCTAVOS"
+horizontal_alignment = 1
+vertical_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MargenCentral/VBox/GridFases/PanelOctavos"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 80)
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boton" type="Button" parent="MargenCentral/VBox/GridFases/PanelOctavos"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_estilo")
+theme_override_styles/hover = ExtResource("4_estilo")
+theme_override_styles/pressed = ExtResource("4_estilo")
+text = "Jugar"
+
+[node name="PanelCuartos" type="PanelContainer" parent="MargenCentral/VBox/GridFases"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 200)
+
+[node name="VBox" type="VBoxContainer" parent="MargenCentral/VBox/GridFases/PanelCuartos"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="MargenCentral/VBox/GridFases/PanelCuartos"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "CUARTOS"
+horizontal_alignment = 1
+vertical_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MargenCentral/VBox/GridFases/PanelCuartos"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 80)
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boton" type="Button" parent="MargenCentral/VBox/GridFases/PanelCuartos"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_estilo")
+theme_override_styles/hover = ExtResource("4_estilo")
+theme_override_styles/pressed = ExtResource("4_estilo")
+text = "Bloqueado"
+
+[node name="PanelSemis" type="PanelContainer" parent="MargenCentral/VBox/GridFases"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 200)
+
+[node name="VBox" type="VBoxContainer" parent="MargenCentral/VBox/GridFases/PanelSemis"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="MargenCentral/VBox/GridFases/PanelSemis"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "SEMIS"
+horizontal_alignment = 1
+vertical_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MargenCentral/VBox/GridFases/PanelSemis"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 80)
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boton" type="Button" parent="MargenCentral/VBox/GridFases/PanelSemis"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_estilo")
+theme_override_styles/hover = ExtResource("4_estilo")
+theme_override_styles/pressed = ExtResource("4_estilo")
+text = "Bloqueado"
+
+[node name="PanelFinal" type="PanelContainer" parent="MargenCentral/VBox/GridFases"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 200)
+
+[node name="VBox" type="VBoxContainer" parent="MargenCentral/VBox/GridFases/PanelFinal"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Label" type="Label" parent="MargenCentral/VBox/GridFases/PanelFinal"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 22
+text = "FINAL"
+horizontal_alignment = 1
+vertical_alignment = 0
+
+[node name="TextureRect" type="TextureRect" parent="MargenCentral/VBox/GridFases/PanelFinal"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 80)
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Boton" type="Button" parent="MargenCentral/VBox/GridFases/PanelFinal"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_estilo")
+theme_override_styles/hover = ExtResource("4_estilo")
+theme_override_styles/pressed = ExtResource("4_estilo")
+text = "Bloqueado"

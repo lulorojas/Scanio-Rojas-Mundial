@@ -22,6 +22,7 @@ Button/colors/font_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
 Button/colors/font_hover_color = Color(0.2901961, 0.17254902, 0.06666667, 1)
 Button/styles/hover = ExtResource("3_5ii6y")
 Button/styles/normal = ExtResource("3_5ii6y")
+Button/styles/pressed = ExtResource("3_5ii6y")
 
 [node name="Control" type="Control" unique_id=282370575]
 layout_mode = 3

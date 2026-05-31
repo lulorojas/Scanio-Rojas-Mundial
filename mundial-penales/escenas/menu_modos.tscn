@@ -12,6 +12,7 @@ Button/constants/h_separation = 7
 Button/font_sizes/font_size = 45
 Button/styles/hover = ExtResource("3_uphvm")
 Button/styles/normal = ExtResource("3_uphvm")
+Button/styles/pressed = ExtResource("3_uphvm")
 
 [node name="menu_modos" type="Control" unique_id=1192512712]
 layout_mode = 3

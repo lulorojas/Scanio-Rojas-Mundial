@@ -1,0 +1,61 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/pausa.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="2_font"]
+[ext_resource type="StyleBox" uid="uid://b1tmdld02lv3n" path="res://assets/extras/estiloboton.tres" id="3_estilo"]
+
+[node name="Pausa" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_script")
+
+[node name="Fondo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="VBox" type="VBoxContainer" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Fondo/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 50
+text = "PAUSA"
+horizontal_alignment = 1
+
+[node name="Reiniciar" type="Button" parent="Fondo/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_estilo")
+theme_override_styles/hover = ExtResource("3_estilo")
+theme_override_styles/pressed = ExtResource("3_estilo")
+text = "Reiniciar"
+
+[node name="Volver" type="Button" parent="Fondo/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_estilo")
+theme_override_styles/hover = ExtResource("3_estilo")
+theme_override_styles/pressed = ExtResource("3_estilo")
+text = "Volver"
+
+[connection signal="pressed" from="Fondo/VBox/Reiniciar" to="." method="_al_reiniciar"]
+[connection signal="pressed" from="Fondo/VBox/Volver" to="." method="_al_volver"]

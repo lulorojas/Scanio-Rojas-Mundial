@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ckcgk1u2yncfo" path="res://assets/extras/arco.png" id="3_yokxi"]
 [ext_resource type="Script" uid="uid://bg12r3u43t12b" path="res://scripts/cancha.gd" id="5_cancha"]
 [ext_resource type="FontFile" uid="uid://ch7on2tkq2t41" path="res://assets/fuentes/Cuprum/static/Cuprum-Bold.ttf" id="6_font"]
+[ext_resource type="PackedScene" path="res://escenas/pausa.tscn" id="7_pausa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01oa3"]
-size = Vector2(472, 163)
+size = Vector2(490, 172)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76hsk"]
 size = Vector2(1053.25, 183.125)
@@ -29,7 +30,7 @@ collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Arco" unique_id=1311252230]
-position = Vector2(622, 229)
+position = Vector2(619, 226)
 shape = SubResource("RectangleShape2D_01oa3")
 
 [node name="Afuera" type="Area2D" parent="." unique_id=1983435087]
@@ -60,7 +61,7 @@ distancia_vertical = 90.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=952245207]
 
-[node name="Marcador1" type="Label" parent="CanvasLayer" unique_id=1371877041]
+[node name="MarcadorJugador" type="Label" parent="CanvasLayer" unique_id=1371877041]
 offset_left = 9.0
 offset_top = 11.0
 offset_right = 307.0
@@ -69,7 +70,38 @@ theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 35
 vertical_alignment = 1
 
-[node name="Marcador2" type="Label" parent="CanvasLayer" unique_id=1682760758]
+[node name="CirculosJugador" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 310.0
+offset_top = 15.0
+offset_right = 510.0
+offset_bottom = 50.0
+
+[node name="C1" type="ColorRect" parent="CanvasLayer/CirculosJugador"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C2" type="ColorRect" parent="CanvasLayer/CirculosJugador"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C3" type="ColorRect" parent="CanvasLayer/CirculosJugador"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C4" type="ColorRect" parent="CanvasLayer/CirculosJugador"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C5" type="ColorRect" parent="CanvasLayer/CirculosJugador"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="MarcadorRival" type="Label" parent="CanvasLayer" unique_id=1682760758]
 offset_left = 14.0
 offset_top = 74.0
 offset_right = 312.0
@@ -77,3 +109,36 @@ offset_bottom = 119.0
 theme_override_fonts/font = ExtResource("6_font")
 theme_override_font_sizes/font_size = 35
 vertical_alignment = 1
+
+[node name="CirculosRival" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 310.0
+offset_top = 78.0
+offset_right = 510.0
+offset_bottom = 113.0
+
+[node name="C1" type="ColorRect" parent="CanvasLayer/CirculosRival"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C2" type="ColorRect" parent="CanvasLayer/CirculosRival"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C3" type="ColorRect" parent="CanvasLayer/CirculosRival"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C4" type="ColorRect" parent="CanvasLayer/CirculosRival"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="C5" type="ColorRect" parent="CanvasLayer/CirculosRival"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="Pausa" parent="." unique_id=1875625136 instance=ExtResource("7_pausa")]
