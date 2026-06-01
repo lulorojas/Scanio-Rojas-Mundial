@@ -211,14 +211,21 @@ func reaccionar_ia():
 	var dir_v = 0
 
 	if pelota and pelota.en_movimiento:
+		var decision = _elegir_direccion(pelota)
+		var dir_correcta_h = decision[0]
+		var dir_correcta_v = decision[1]
+
 		var prob = probabilidad_error.get(Global.ronda, 0.40)
 		if randf() < prob:
-			dir_h = randi_range(-1, 1)
-			dir_v = randi_range(-1, 1)
+			var opciones_h = [-1, 0, 1]
+			opciones_h.erase(dir_correcta_h)
+			dir_h = opciones_h[randi() % opciones_h.size()]
+			var opciones_v = [-1, 0, 1]
+			opciones_v.erase(dir_correcta_v)
+			dir_v = opciones_v[randi() % opciones_v.size()]
 		else:
-			var decision = _elegir_direccion(pelota)
-			dir_h = decision[0]
-			dir_v = decision[1]
+			dir_h = dir_correcta_h
+			dir_v = dir_correcta_v
 	else:
 		dir_h = randi_range(-1, 1)
 		dir_v = randi_range(-1, 1)
